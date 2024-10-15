@@ -1,0 +1,1 @@
+{"name":"Local: nktick","url":"c:\\Users\\ADMIN\\Desktop\\susois\\vnoi\\nktick.cpp","tests":[{"id":1728978585232,"input":"5\n2 5 7 8 4\n4 9 10 10\n","output":"18\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\vnoi\\nktick.cpp","group":"local","local":true}
