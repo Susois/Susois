@@ -1,0 +1,1 @@
+{"name":"Local: a","url":"c:\\Users\\ADMIN\\Desktop\\susois\\codeforces\\edu170div2\\a.cpp","tests":[{"id":1728917154108,"input":"3\nGARAGE\nGARAGEFORSALE\nABCDE\nAABCD\nTRAINING\nDRAINING\n","output":"14\n10\n16\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\codeforces\\edu170div2\\a.cpp","group":"local","local":true}

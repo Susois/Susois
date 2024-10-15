@@ -1,0 +1,1 @@
+{"name":"Local: j","url":"c:\\Users\\ADMIN\\Desktop\\susois\\test\\ic\\j.cpp","tests":[{"id":1728797950672,"input":"abccbabc","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\test\\ic\\j.cpp","group":"local","local":true}
