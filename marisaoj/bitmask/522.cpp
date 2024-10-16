@@ -26,43 +26,31 @@
 
 //     cout << res << "\n";
 //     return 0;
-// }
-#include <iostream>
-#include <unordered_map>
+
+#include<bits/stdc++.h>
 using namespace std;
+unordered_map<int,int> se;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
 
-int count_pairs(int A[], int n) {
-    unordered_map<int, int> freq;
-    
-    // Đếm số lần xuất hiện của mỗi phần tử
-    for (int i = 0; i < n; ++i) {
-        freq[A[i]]++;
+    int n;cin>>n;
+    long long res = 0;
+    vector<int> a(n+1);
+    for(int i=1;i<=n;i++)
+    {
+        int c;
+        cin>>a[i];
+        a[i] = a[i]^i;
     }
-    
-    int count = 0;
-    // Tính số cặp thỏa mãn
-    for (auto it : freq) {
-        int val = it.second;
-        if (val > 1) {
-            count += val * (val - 1) / 2;  // C(k, 2) = k * (k - 1) / 2
-        }
-    }
-    
-    return count;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    int A[n];
-    
-    // Nhập mảng
-    for (int i = 0; i < n; ++i) {
-        cin >> A[i];
-    }
-    
-    // Tính và in ra kết quả
-    cout << count_pairs(A, n) << endl;
-
+    for(int i=1;i<=n;i++)
+    {
+        if(binary_search(se.begin(),se.end(),a[i]))
+        {res += se[a[i]];
+        se[a[i]]++;}
+        else se.insert({se[a[i]],1});
+    }    
+    cout<<res;
     return 0;
 }
