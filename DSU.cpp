@@ -20,7 +20,7 @@ void unions_sets(int a,int b)
     b = find_set(b);
     if(a!=b)
     {
-        parent[b] = a;
+        parent[a] = b; // hướng đi từ a tới b
         // if(sz[a] <sz[b])swap(a,b)// dat bien a la cay co kich co lon hon
         // sz[b] += sz[a]; //update kich co cua cay
 
