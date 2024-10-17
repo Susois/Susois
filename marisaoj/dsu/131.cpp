@@ -38,7 +38,6 @@ int main()
     int n, q;
     cin >> n >> q;
 
-    // Khởi tạo tập hợp ban đầu cho các đỉnh
     for (int i = 1; i <= n; i++) make_set(i);
 
     for (int i = 0; i < q; i++)
@@ -55,7 +54,7 @@ int main()
         {
             int u;
             cin >> u;
-            cout << sum[find_set(u)] << "\n"; // In ra tổng đỉnh trong thành phần liên thông chứa u
+            cout << sum[find_set(u)] << "\n"; 
         }
     }
 
