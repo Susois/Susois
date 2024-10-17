@@ -6,7 +6,6 @@ int countSetBits(int num) {
     return __builtin_popcount(num);
 }
 
-// Hàm để tắt bit bật quan trọng nhất của một số
 int turnOffMostSignificantBit(int num) {
     if (num == 0) return 0;
     int msb = 1 << (31 - __builtin_clz(num)); // Tìm bit bật quan trọng nhất
@@ -28,7 +27,7 @@ int main() {
         if (type == 1) {
             int x;
             cin >> x;
-            a ^= x; // Gán a bằng a XOR x
+            a ^= x;
         } else if (type == 2) {
             a = turnOffMostSignificantBit(a); // Tắt bit bật quan trọng nhất của a
         } else if (type == 3) {
