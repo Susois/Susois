@@ -1,0 +1,1 @@
+{"name":"Local: 130","url":"c:\\Users\\ADMIN\\Desktop\\susois\\marisaoj\\dsu\\130.cpp","tests":[{"id":1729138073752,"input":"6 5\n1 1 2\n1 1 3\n2 2 3\n1 5 6\n2 4 5","output":"YES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\marisaoj\\dsu\\130.cpp","group":"local","local":true}
