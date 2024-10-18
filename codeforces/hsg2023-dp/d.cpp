@@ -8,24 +8,27 @@ int main() {
     cin.tie(0);
     cout.tie(0);
 
-    int n, s;
-    cin >> n >> s;
-    vector<int> val(n);
-    for (int i = 0; i < n; i++) {
+    int n, S, ans=0;
+    cin >> n >> S;
+    vector<int> val(n+1);
+    int truyvet[n+1];
+    for (int i = 1; i <= n; i++) {
         cin >> val[i];
-        dp[val[i]];
     }
-
-    vector<long long> dp(s + 1, 0);
+    int dp[S+1];
+    memset(dp,0,sizeof(dp));
     dp[0] = 1;
-    for (int i = 0; i < n; i++) {
-        for (int j = val[i]; j <= s; j++) {
-            dp[j] = (dp[j] + dp[j - val[i]] ) % MOD;
-            cout<<dp[j]<<' ';
+    for(int s=0;s<=S;s++)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            if(s>=val[i])
+            {
+                dp[s] = (dp[s] + dp[s-val[i]])%MOD;
+            }
         }
-        cout<<'\n';
     }
 
-    cout << dp[s] << endl;
+    cout << dp[S] << endl;
     return 0;
 }

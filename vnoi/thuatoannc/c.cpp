@@ -34,7 +34,7 @@ int main() {
 
     // Nếu dp[N] == 1 thì Hải thắng, ngược lại Linh thắng
     if (dp[N] == 1) {
-        cout << "Hai" << endl;
+        cout << "Hải" << endl;
     } else {
         cout << "Linh" << endl;
     }
