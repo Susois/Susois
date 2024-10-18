@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int MOD = 1e9 + 7;
@@ -10,22 +10,22 @@ int main() {
 
     int n, s;
     cin >> n >> s;
-    vector<int> dp(s + 1, 0);
-    dp[0] = 1; 
     vector<int> val(n);
-    for (int i = 1; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> val[i];
-        dp[val[i]]=1;
+        dp[val[i]];
     }
 
-
-    for (int i = 1; i <= n; i++) {
+    vector<long long> dp(s + 1, 0);
+    dp[0] = 1;
+    for (int i = 0; i < n; i++) {
         for (int j = val[i]; j <= s; j++) {
             dp[j] = (dp[j] + dp[j - val[i]] ) % MOD;
+            cout<<dp[j]<<' ';
         }
+        cout<<'\n';
     }
 
     cout << dp[s] << endl;
-
     return 0;
 }
