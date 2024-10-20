@@ -3,14 +3,12 @@ using namespace std;
 
 int main() {
     int t;
-    cin >> t;  // Số lượng test cases
+    cin >> t; 
     while (t--) {
         int n;
-        cin >> n;  // Độ dài chuỗi
-
-        // Xây dựng chuỗi xen kẽ giữa '0' và '1'
+        cin >> n;  
         for (int i = 0; i < n; ++i) {
-            cout << (i % 2);  // In ra '0' cho vị trí chẵn, '1' cho vị trí lẻ
+            cout << (i % 2);  
         }
         cout << endl;
     }

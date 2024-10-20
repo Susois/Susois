@@ -9,11 +9,7 @@ void solve() {
         cin >> n;
         string s;
         cin >> s;
-        
-        // Count the number of '0's in the string
         int zeroCount = count(s.begin(), s.end(), '0');
-        
-        // Alice wins if the number of '0's is odd, otherwise Bob wins
         if (zeroCount % 2 == 1) {
             cout << "YES" << endl;
         } else {
