@@ -21,17 +21,33 @@ const double PI = acos(-1.0);
 
 using namespace std;
 
+void solve() {
+    string t;
+    cin >> t;
 
-
-void solve(){
-
-}
-int main(){
-    fast
-
-    int t;cin>>t;
-    while(t--){
-    solve();
+    string s = "";
+    int n = t.size();
+    if(n==1){
+        cout<<t;
+        re;
     }
+    int left = (n - 1) / 2;  // Vị trí giữa xâu, bắt đầu từ giữa ra
+    int right = left + 1;
+
+    for (int i = 0; i < n/2; i++) {
+            s = s + t[left] ;  
+            left--;
+            s = s + t[right]; 
+            right++;
+    }
+
+    cout << s << endl;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    solve();
     return 0;
 }

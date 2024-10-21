@@ -9,22 +9,27 @@
 #define pb push_back
 #define vec vector<int> 
 #define pii pair<int,int>
-#define re return
-#define br break
+#define su exit(0)
 #define fast                        \
 ios_base::sync_with_stdio(false);   \
-cin.tie(0);cout.tie(0);             
+cin.tie(0);cout.tie(0);             \
 const int N = 1e5 + 5;
 const int INF = 1e9 + 7;
 const double EPS = 1e-9;
 const double PI = acos(-1.0);
 
+
 using namespace std;
 
-
+int cnt  =0;
 
 void solve(){
-
+    string s;cin>>s;
+    if(s=="Icosahedron")cnt+=20;
+    else if(s=="Cube")cnt+=6;
+    else if(s=="Tetrahedron")cnt+=4;
+    else if(s=="Dodecahedron")cnt+=12;
+    else cnt+=8;
 }
 int main(){
     fast
@@ -33,5 +38,6 @@ int main(){
     while(t--){
     solve();
     }
+    cout<<cnt;
     return 0;
 }
