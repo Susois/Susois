@@ -52,7 +52,7 @@ void solve() {
         // Nếu slot hiện tại có nhiều lon nước chanh hơn số còn lại cần lấy
         if (a[i] <= k) {
             k -= a[i];      // Lấy tất cả lon nước chanh từ slot này
-            presses += a[i] + 1; // Số lần nhấn nút tăng thêm đúng bằng số lon đã lấy
+            presses += a[i]; // Số lần nhấn nút tăng thêm đúng bằng số lon đã lấy
         } else {
             presses += k;    // Nếu còn ít hơn, chỉ cần nhấn đúng số lần lấy k lon
             k = 0;           // Đã lấy đủ số lon nước chanh

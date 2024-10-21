@@ -1,78 +1,103 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-const int maxn = 1e5 + 5;
-const int LOG = 17; 
-int n, q;
-vector<int> g[maxn];
-int parent[maxn][LOG];  
-int depth[maxn];       
-int tin[maxn], tout[maxn], timer = 0; 
-
-void dfs(int u, int p) {
-    tin[u] = ++timer;
-    parent[u][0] = p;
-    for (int i = 1; i < LOG; i++) {
-        if (parent[u][i - 1] != -1) {
-            parent[u][i] = parent[parent[u][i - 1]][i - 1];
-        }
+const int LOG = 17;
+const int maxn = 100005;
+vector<int> cay[maxn];
+int cha[maxn][LOG];
+int dep[maxn];
+// int tin[maxn], tout[maxn], timer = 0;
+void dfs(int u, int par)
+{
+    // tin[u] = ++timer;/
+    cha[u][0] = par;
+    for (int i = 1; i < LOG; i++)
+    {
+        if (cha[u][i - 1] != -1)
+            cha[u][i] = cha[cha[u][i - 1]][i - 1];
     }
 
-    for (int v : g[u]) {
-        if (v != p) {
-            depth[v] = depth[u] + 1;
+    for (int v : cay[u])
+    {
+        if (v != par)
+        {
+            dep[v] = dep[u] + 1;
             dfs(v, u);
         }
     }
-    tout[u] = ++timer;
+    // tout[u] = ++timer;//
 }
 
-bool is_ancestor(int u, int v) {
-    return tin[u] <= tin[v] && tout[u] >= tout[v];
-}
-int lca(int u, int v) {
-    if (is_ancestor(u, v)) return u;
-    if (is_ancestor(v, u)) return v;
-
-    for (int i = LOG - 1; i >= 0; i--) {
-        if (!is_ancestor(parent[u][i], v)) {
-            u = parent[u][i];
+int lca(int u, int v)
+{
+    if (dep[u] < dep[v])
+        swap(u, v);
+    int diff = dep[u] - dep[v];
+    for (int i = 0; i < LOG; i++)
+    {
+        if ((diff >> i) & 1)
+        {
+            u = cha[u][i];
         }
     }
-    return parent[u][0];
+    if (u == v)
+        return u;
+    for (int i = LOG - 1; i >= 0; i--)
+    {
+        if (cha[u][i] != cha[v][i])
+        {
+            u = cha[u][i];
+            v = cha[v][i];
+        }
+    }
+    return cha[u][0];
 }
 
-void solve() {
-    cin >> n >> q;
+bool totien(int a, int b)
+{
+    // return tin[u] <= tin[v] && tout[u] >= tout[v];
+    return lca(a, b) == a;
+}
+bool check(int u, int v, int y)
+{
+    int lca_uv = lca(u, v);
+    return (totien(y, u) && totien(lca_uv, y)) || (totien(y, v) && totien(lca_uv, y));
+}
 
-    for (int i = 1; i < n; i++) {
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n, q;
+    cin >> n >> q;
+    for (int i = 1; i < n; i++)
+    {
         int u, v;
         cin >> u >> v;
-        g[u].push_back(v);
-        g[v].push_back(u);
+        cay[u].push_back(v);
+        cay[v].push_back(u);
     }
-
-    memset(parent, -1, sizeof(parent));
-
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j < LOG; j++)
+        {
+            cha[i][j] = -1;
+        }
+    }
+    dep[1] = 0;
     dfs(1, -1);
-
-    while (q--) {
+    while (q--)
+    {
         int x, y, z;
         cin >> x >> y >> z;
-        int lca_xz=lca(x,z);
-        if (is_ancestor(lca_xz,y) && is_ancestor(y,x) || is_ancestor(y,z)) {
+        if (check(x, z, y))
+        {
             cout << "YES\n";
-        } else {
+        }
+        else
+        {
             cout << "NO\n";
         }
     }
-}
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-
-    solve();
     return 0;
 }
