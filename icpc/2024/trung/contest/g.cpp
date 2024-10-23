@@ -5,6 +5,10 @@ const int MOD = 1e9 + 7;
 void solve(){
     int n,m;cin>>n>>m;
     int a,b;cin>>a>>b;
+    if(n==1 && m==1 ){
+        cout<<1;
+        return;
+    }
     if((a==1&&b==1) || (a==1 && b==m) || (a==n && b==1) || (a==n && b==m) ){cout<<3;return ;}
     else {
         if(a==1 || a==n ){

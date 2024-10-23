@@ -21,28 +21,23 @@ const double PI = acos(-1.0);
 
 using namespace std;
 
+int cnt = 0;
 void solve(){
-    string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    int tmp=0,n;
+    for(int i=0;i<3;i++){
+        cin>>n;
+        if(n==1)tmp++;
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+    if(tmp>1)cnt++;
 }
 int main(){
     fast
 
-    // int t;cin>>t;
-    // while(t--){
-    // solve();
-    // cout<<'\n';
-    // }
+    int t;cin>>t;
+    while(t--){
     solve();
+    // cout<<'\n';
+    }
+    cout<<cnt;
     return 0;
 }

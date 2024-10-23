@@ -8,7 +8,7 @@
 #define mp make_pair
 #define pb push_back
 #define vec vector<int> 
-#define pii pair<int,int>
+#define pa pair<int,int>
 #define re return
 #define br break
 #define fast                        \
@@ -22,27 +22,25 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-    string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    int n,k,tmp=0;cin>>n>>k;
+    vec se(n);
+    for(int i=0;i<n;i++)cin>>se[i];
+    if(se[0] ==0 ){
+        cout<<0;
+        re;
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+    tmp = se[k-1];
+    int cnt=0;
+    for(int i=0;i<n;i++)if(se[i] >= tmp && se[i]!=0)cnt++;
+    cout<<cnt;
 }
 int main(){
     fast
 
     // int t;cin>>t;
     // while(t--){
-    // solve();
-    // cout<<'\n';
-    // }
     solve();
+    cout<<'\n';
+    // }
     return 0;
 }

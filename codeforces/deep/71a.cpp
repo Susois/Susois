@@ -23,26 +23,19 @@ using namespace std;
 
 void solve(){
     string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
-    }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
+    int n = sz(s);
+    if(n<=10)cout<<s;
+    else {
+        cout<<s[0]<<n-2<<s[n-1];
     }
 }
 int main(){
     fast
 
-    // int t;cin>>t;
-    // while(t--){
-    // solve();
-    // cout<<'\n';
-    // }
+    int t;cin>>t;
+    while(t--){
     solve();
+    cout<<'\n';
+    }
     return 0;
 }

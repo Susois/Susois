@@ -21,28 +21,24 @@ const double PI = acos(-1.0);
 
 using namespace std;
 
+int bit=0;
 void solve(){
-    string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    string se;cin>>se;
+    if(se[0]=='+' || se[2] == '+') {
+        bit++;
+        re;
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
+    else if(se[0]=='-' || se[2] == '-'){
+        bit--;re;
     }
 }
 int main(){
     fast
 
-    // int t;cin>>t;
-    // while(t--){
-    // solve();
-    // cout<<'\n';
-    // }
+    int t;cin>>t;
+    while(t--){
     solve();
+    }
+    cout<<bit;;
     return 0;
 }
