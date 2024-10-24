@@ -3,8 +3,10 @@
 #define lli int64_t
 #define fi first 
 #define se second
-#define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
+#define all(x) x.begin(), x.end()
+#define fint(i,x) for(int i=1;i<=x;i++)
+#define fstr(i,s) for(int i=0;i<sz(s);i++)
 #define mp make_pair
 #define pb push_back
 #define vec vector<int> 
@@ -20,20 +22,22 @@ const double EPS = 1e-9;
 const double PI = acos(-1.0);
 
 using namespace std;
-
+bool check = true;
 void solve(){
-    string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    int n;cin>>n;
+    int se[n][3];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<3;j++)cin>>se[i][j];
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+
+    for(int i=0;i<3;i++)
+        for(int j=0;j<n-1;j++){
+            se[j][i] += se[j+1][i]; 
+        }
+    for(int i=0;i<3;i++)if(se[n-2][i] != 0)check =false;
+    if(!check)cout<<"NO";
+    else cout <<"YES";
+    re;
 }
 int main(){
     fast

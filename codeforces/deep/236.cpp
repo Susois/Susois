@@ -23,17 +23,14 @@ using namespace std;
 
 void solve(){
     string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    set<char> se;
+    se.insert(s[0]);
+    for(int i=1;i<sz(s);i++){
+        if(!se.empty() &&  se.count(s[i]) == 0 )se.insert(s[i]);
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+    // cout<<sz(se)<<'\n';
+    if(sz(se)%2==0)cout<<"CHAT WITH HER!";
+    else cout<<"IGNORE HIM!";
 }
 int main(){
     fast
@@ -43,6 +40,7 @@ int main(){
     // solve();
     // cout<<'\n';
     // }
+
     solve();
     return 0;
 }

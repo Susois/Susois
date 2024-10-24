@@ -3,8 +3,10 @@
 #define lli int64_t
 #define fi first 
 #define se second
-#define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
+#define all(x) x.begin(), x.end()
+#define fint(i,x) for(int i=1;i<=x;i++)
+#define fstr(i,s) for(int i=0;i<sz(s);i++)
 #define mp make_pair
 #define pb push_back
 #define vec vector<int> 
@@ -22,18 +24,14 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-    string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
-    }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+    lli a,b,c;cin>>a>>b>>c;
+    lli res1=0,res2=0,res=0;
+    if(a%c==0)res1 = a/c;
+    else res1= a/c +1;
+    if(b%c==0)res2 = b/c;
+    else res2 = b/c +1;
+    res = res1 * res2;
+    cout<<res;
 }
 int main(){
     fast

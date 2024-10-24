@@ -23,17 +23,8 @@ using namespace std;
 
 void solve(){
     string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
-    }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
-    }
+    s[0] = toupper(s[0]);
+    cout<<s;
 }
 int main(){
     fast
@@ -43,6 +34,7 @@ int main(){
     // solve();
     // cout<<'\n';
     // }
+
     solve();
     return 0;
 }

@@ -3,8 +3,10 @@
 #define lli int64_t
 #define fi first 
 #define se second
-#define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
+#define all(x) x.begin(), x.end()
+#define fint(i,x) for(int i=1;i<=x;i++)
+#define fstr(i,s) for(int i=0;i<sz(s);i++)
 #define mp make_pair
 #define pb push_back
 #define vec vector<int> 
@@ -23,17 +25,20 @@ using namespace std;
 
 void solve(){
     string s;cin>>s;
-    vec se;
-    int n =sz(s);
-    for(int i=0;i<n;i+=2){
-        int  u = s[i] - '0';
-        se.pb(u);
+    int cnt=0;
+    bool check = false;
+    fstr(i,s) {
+        if(s[i] >= 'A' && s[i] <= 'Z')cnt++;
     }
-    sort(se.begin(),se.end());
-    for(int i=0;i<sz(se);i++){
-        cout<<se[i];
-        if(i!=sz(se)-1)cout<<'+';
+    if(cnt > (sz(s)-cnt))check =true;
+    if(check) fstr(i,s) {
+            s[i] = toupper(s[i]);
     }
+    else fstr(i,s) {
+        s[i] = tolower(s[i]);
+    }
+    cout<<s<<'\n';
+    
 }
 int main(){
     fast
