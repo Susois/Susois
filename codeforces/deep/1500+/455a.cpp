@@ -22,9 +22,23 @@ const double EPS = 1e-9;
 const double PI = acos(-1.0);
 
 using namespace std;
+int dp[N],se[N];
 
 void solve(){
-
+    memset(dp,0,sizeof(dp));
+    memset(se,0,sizeof(se));
+    int n;cin>>n;
+    vec a(n+1);
+    fint(i,n){
+        cin>>a[i];
+        se[a[i]]++;
+    }
+    dp[0] = 0;
+    dp[1] = se[1];
+    fint(i,n){
+        if(i!=1)dp[i] = max(dp[i-1], dp[i-2] + se[i]*i);  
+    }
+    cout<<dp[n];
 }
 int main(){
     fast

@@ -9,13 +9,13 @@
 #define fstr(i,s) for(int i=0;i<sz(s);i++)
 #define mp make_pair
 #define pb push_back
-#define vec vector<int> 
+#define vec vector<pair<int,int>> 
 #define pii pair<int,int>
 #define re return
 #define br break
 #define fast                        \
 ios_base::sync_with_stdio(false);   \
-cin.tie(0);cout.tie(0);             
+cin.tie(0);cout.tie(0);             \
 const int N = 1e5 + 5;
 const int INF = 1e9 + 7;
 const double EPS = 1e-9;
@@ -24,7 +24,13 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-
+    int n;cin>>n;
+    vec se(n+1);
+    vector<int> sol(n+1,0);
+    fint(i,n)cin>>se[i].first>>se[i].second;
+    fint(i,n)sol[i] = sol[i-1] + se[i].second -se[i].first;
+    cout<<*max_element(sol.begin(),sol.end());
+    
 }
 int main(){
     fast

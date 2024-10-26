@@ -15,7 +15,7 @@
 #define br break
 #define fast                        \
 ios_base::sync_with_stdio(false);   \
-cin.tie(0);cout.tie(0);             
+cin.tie(0);cout.tie(0);             \
 const int N = 1e5 + 5;
 const int INF = 1e9 + 7;
 const double EPS = 1e-9;
@@ -24,7 +24,19 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-
+    string s;cin>>s;
+    string res;cin>>res;
+    // if(sz(s)==1){
+    //     if(s[0] == 'z'){
+    //         s[0] ='a';
+    //         re;
+    //     }
+    //     s[0] = s[0]+1;
+    //     re;
+    // }
+    reverse(s.begin(),s.end());
+    if(s==res)cout<<"YES";
+    else cout<<"NO";
 }
 int main(){
     fast

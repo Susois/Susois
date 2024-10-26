@@ -22,15 +22,21 @@ const double EPS = 1e-9;
 const double PI = acos(-1.0);
 
 using namespace std;
-bool check = true;
+
+
 void solve(){
+    int n; cin>>n;
     string s;cin>>s;
+    int se[2];
+    memset(se,0,sizeof(se));
     fstr(i,s){
-        if(s[i] != '4' &&  s[i] != '7' ){
-            check = false;
-            re;
-        }
+        if(s[i] == 'A')se[0]++;
+        else se[1]++;
     }
+    if(se[0] > se[1])cout<<"Anton";
+    else if(se[0] < se[1])cout<<"Danik";
+    else cout<<"Friendship";
+    re;
 }
 int main(){
     fast
@@ -41,7 +47,5 @@ int main(){
     // cout<<'\n';
     // }
     solve();
-    if(check) cout<<"YES";
-    else cout<<"NO";
     return 0;
 }

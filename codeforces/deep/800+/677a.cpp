@@ -15,7 +15,7 @@
 #define br break
 #define fast                        \
 ios_base::sync_with_stdio(false);   \
-cin.tie(0);cout.tie(0);             
+cin.tie(0);cout.tie(0);             \
 const int N = 1e5 + 5;
 const int INF = 1e9 + 7;
 const double EPS = 1e-9;
@@ -24,7 +24,15 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-
+    int n,m;cin>>n>>m;
+    vec se(n+1);
+    fint(i,n)cin>>se[i];
+    int cnt=0;
+    fint(i,n){
+        if(se[i]>m)cnt+=2;
+        else cnt+=1;
+    }
+    cout<<cnt;
 }
 int main(){
     fast
