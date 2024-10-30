@@ -1,53 +1,57 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define lli int64_t
-#define fi first 
-#define se second
-#define sz(x) (int)x.size()
-#define all(x) x.begin(), x.end()
-#define fint(i,x) for(int i=1;i<=x;i++)
-#define fstr(i,s) for(int i=0;i<sz(s);i++)
-#define mp make_pair
-#define pb push_back
-#define vec vector<int> 
-#define pii pair<int,int>
-#define re return
-#define br break
-#define fast                        \
-ios_base::sync_with_stdio(false);   \
-cin.tie(0);cout.tie(0);             
-const int N = 1e5 + 5;
-const int INF = 1e9 + 7;
-const double EPS = 1e-9;
-const double PI = acos(-1.0);
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <map>
+#include <vector>
 
 using namespace std;
-int dp[N],se[N];
 
-void solve(){
-    memset(dp,0,sizeof(dp));
-    memset(se,0,sizeof(se));
-    int n;cin>>n;
-    vec a(n+1);
-    fint(i,n){
-        cin>>a[i];
-        se[a[i]]++;
-    }
-    dp[0] = 0;
-    dp[1] = se[1];
-    fint(i,n){
-        if(i!=1)dp[i] = max(dp[i-1], dp[i-2] + se[i]*i);  
-    }
-    cout<<dp[n];
+template<class T> T max(T a, T b, T c) {
+    return max(a, max(b, c));
 }
-int main(){
-    fast
 
-    // int t;cin>>t;
-    // while(t--){
-    // solve();
-    // cout<<'\n';
-    // }
-    solve();
-    return 0;
+int nextInt() {
+    int x = 0, p = 1;
+    char c;
+    do {
+        c = getchar();
+    } while (c <= 32);
+    if (c == '-') {
+        p = -1;
+        c = getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        x = x * 10 + c - '0';
+        c = getchar();
+    }
+    return x * p;
+}
+
+const int maxn = 111111;
+
+int n;
+map<int, int> m;
+vector<pair<int, int> > v;
+long long f[maxn];
+
+int main() {
+    //freopen("input.txt", "r", stdin);
+    n = nextInt();
+    while (n--) {
+        int x = nextInt();
+        m[x]++;
+    }
+    for (map<int, int>::iterator it = m.begin(); it != m.end(); it++) {
+        v.push_back(make_pair(it->first, it->second));
+    }
+    for (int i = 0; i < (int)v.size(); i++) {
+        int pr = i - 1;
+        while (pr >= 0 && v[pr].first + 1 == v[i].first) pr--;
+        if (pr == -1) f[i] = 1LL * v[i].first * v[i].second;
+        else f[i] = f[pr] + 1LL * v[i].first * v[i].second;
+        if (i != 0)
+            f[i] = max(f[i], f[i - 1]);
+    }
+    cout << f[(int)v.size() - 1] << '\n';
 }

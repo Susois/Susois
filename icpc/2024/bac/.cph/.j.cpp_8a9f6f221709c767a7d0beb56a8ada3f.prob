@@ -1,0 +1,1 @@
+{"name":"Local: j","url":"c:\\Users\\ADMIN\\Desktop\\susois\\icpc\\2024\\bac\\j.cpp","tests":[{"id":1729994089492,"input":"200 350 5\n0 50\n200 350\n100 200\n39 93\n123 321\n","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\icpc\\2024\\bac\\j.cpp","group":"local","local":true}
