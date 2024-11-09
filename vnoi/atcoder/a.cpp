@@ -24,19 +24,19 @@ const double PI = acos(-1.0);
 using namespace std;
 
 void solve(){
-    int n,m;cin>>n>>m;
-    vector<int> se(n);
-    for(int i=0;i<n;i++)cin>>se[i];
-    sort(se.begin(),se.end());
-    int maxx = INT_MIN;
-    for(int i=1;i<n;i++){
-        if(se[i] - se[i-1] >= maxx) maxx = se[i] - se[i-1];
+    int n;cin>>n;
+    vec a(n+1);
+    fint(i,n)cin>>a[i];
+    int dp[n+1];
+    memset(dp,0,sizeof(dp));
+    dp[0] = 0;
+    dp[1] = 0;
+    dp[2] = abs(a[2] - a[1]);
+    for(int i = 2;i<=n;i++){
+            dp[i] = min(dp[i-1] + abs(a[i]-a[i-1]), dp[i-2] + abs(a[i] - a[i-2] ));
+        }
+        cout<<dp[n];
     }
-    float res = (float)maxx/2;
-    res = max(res, (float)se[0]);
-    printf("%.10f",res);
-
-}
 int main(){
     fast
 
