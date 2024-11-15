@@ -1,0 +1,1 @@
+{"name":"Local: b","url":"c:\\Users\\ADMIN\\Desktop\\susois\\codeforces\\479div3\\b.cpp","tests":[{"id":1731533989710,"input":"7\nABACABA\n","output":"AB"},{"id":1731533997598,"input":"5\nZZZAA","output":"ZZ"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\Desktop\\susois\\codeforces\\479div3\\b.cpp","group":"local","local":true}
